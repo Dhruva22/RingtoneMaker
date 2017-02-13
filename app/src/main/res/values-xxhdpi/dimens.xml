@@ -1,0 +1,78 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="largeFontSize">25sp</dimen>
+
+    <dimen name="meadiamPaddingTop">45dp</dimen>
+    <dimen name="padding_tiny">5dp</dimen>
+    <dimen name="padding_small_tiny">8dp</dimen>
+    <dimen name="padding_small">10dp</dimen>
+    <dimen name="padding_medium_small">12dp</dimen>
+    <dimen name="padding_medium">15dp</dimen>
+    <dimen name="padding_medium_large">18dp</dimen>
+    <dimen name="padding_large">20dp</dimen>
+    <dimen name="padding_xlarge">25dp</dimen>
+    <dimen name="padding_xxlarge">30dp</dimen>
+    <dimen name="padding_xxxlarge">35dp</dimen>
+    <dimen name="padding_xxxxlarge">40dp</dimen>
+    <dimen name="padding_largest">45dp</dimen>
+    <dimen name="padding_xxxlargest">100dp</dimen>
+    <dimen name="elevation_tiny">5dp</dimen>
+
+
+    <dimen name="margin_tiny">5dp</dimen>
+    <dimen name="margin_small_tiny">8dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_medium_small">10dp</dimen>
+    <dimen name="margin_medium">13dp</dimen>
+    <dimen name="margin_medium_large">18dp</dimen>
+    <dimen name="margin_large">20dp</dimen>
+    <dimen name="margin_xlarge">30dp</dimen>
+    <dimen name="margin_xxlarge">30dp</dimen>
+    <dimen name="margin_xxxlarge">33dp</dimen>
+    <dimen name="margin_xxxxlarge">23dp</dimen>
+    <dimen name="margin_largest">40dp</dimen>
+
+
+    <dimen name="margin_xlargest">45dp</dimen>
+    <dimen name="margin_x1largest">50dp</dimen>
+    <dimen name="margin_x2largest">55dp</dimen>
+    <dimen name="margin_xxlargest">65dp</dimen>
+    <dimen name="margin_xx1largest">70dp</dimen>
+    <dimen name="margin_xx2largest">83dp</dimen>
+    <dimen name="margin_xxxlargest">100dp</dimen>
+    <dimen name="margin_xxxxlargest">138dp</dimen>
+
+
+    <dimen name="imageTopMargin">110dp</dimen>
+    <dimen name="imagerighthamargin">33dp</dimen>
+
+
+    <dimen name="text_size_tiny">8sp</dimen>
+    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_medium">12sp</dimen>
+    <dimen name="text_size_medium_large">15sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">20sp</dimen>
+    <dimen name="text_size_xxlarge">20sp</dimen>
+    <dimen name="text_size_xxxlarge">23sp</dimen>
+    <dimen name="text_size_largest">25sp</dimen>
+    <dimen name="text_size_xlargest">27sp</dimen>
+    <dimen name="text_size_xxlargest">29sp</dimen>
+    <dimen name="text_size">14sp</dimen>
+
+    <dimen name="layout_height_xxxlarge">195dp</dimen>
+    <dimen name="layout_height_xxxxlarge">300dp</dimen>
+    <dimen name="menu_size">350dp</dimen>
+    <dimen name="calenderwidth">50dp</dimen>
+    <dimen name="calenderheight">50dp</dimen>
+    <dimen name="txt_size_firstletter">90sp</dimen>
+    <dimen name="textheight">230dp</dimen>
+    <dimen name="icon_image_height">40dp</dimen>
+    <dimen name="icon_image_width">40dp</dimen>
+    <dimen name="setting_item_icon_width">50dp</dimen>
+    <dimen name="setting_item_icon_height">50dp</dimen>
+    <dimen name="item_show_image_height">200dp</dimen>
+</resources>

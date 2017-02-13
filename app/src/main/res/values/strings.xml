@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Ringtone Maker</string>
+    <string name="title_activity_base">Base</string>
+    <string name="title_activity_splash">Ringtone Maker</string>
+    <string name="title_activity_home">Ringtone Maker</string>
+    <string name="title_activity_ringtone_maker">My Name Ringtone</string>
+    <string name="title_activity_my_ringtones">My Ringtones</string>
+    <string name="prefix_label">Prefix</string>
+    <string name="enter_name">Your Name/Any Message</string>
+    <string name="postfix_label">Postfix</string>
+    <string name="language_label">Language</string>
+    <string name="volume_label">Volume</string>
+    <string name="btnsave">Save</string>
+    <string name="btnPlay">Play</string>
+    <string name="btn_set_as">Set As</string>
+    <string name="create_ringtone">Create Ringtone</string>
+    <string name="opps_n_no_ringtones_yet_create_your_new_exciting_ringtones">Opps!!! \n No Ringtones Yet, Create your new exciting ringtones!!!</string>
+    <string name="speak_caller_name">Speak Caller Name</string>
+    <string name="alert">ALERT!</string>
+    <string name="do_you_want_to_exit">Do you want to exit?</string>
+    <string name="cancel">Cancel</string>
+    <string name="exit">Exit</string>
+    <string name="title_activity_information">InformationActivity</string>
+    <string name="how_to_create_ringtone">How to create Ringtone?</string>
+
+
+</resources>

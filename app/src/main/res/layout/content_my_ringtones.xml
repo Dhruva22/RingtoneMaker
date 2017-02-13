@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_my_ringtones"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.ringtonemaker.activity.MyRingtonesActivity"
+    tools:showIn="@layout/activity_my_ringtones">
+
+    <com.example.ringtonemaker.custom.CustomTextView
+        android:id="@+id/tvNoRingtoneMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/opps_n_no_ringtones_yet_create_your_new_exciting_ringtones"
+        app:custom_font="mv_boli_v1"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_large"
+        android:visibility="gone"/>
+
+    <com.example.ringtonemaker.custom.CustomButton
+        android:id="@+id/btnCreateRingtone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNoRingtoneMsg"
+        android:layout_centerInParent="true"
+        android:background="@drawable/on_off_slider"
+        android:text="@string/create_ringtone"
+        app:custom_font="mv_boli_v1"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:paddingLeft="@dimen/padding_medium_small"
+        android:paddingRight="@dimen/padding_medium_small"
+        android:layout_marginTop="@dimen/margin_small"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMyRingtones"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"/>
+</RelativeLayout>

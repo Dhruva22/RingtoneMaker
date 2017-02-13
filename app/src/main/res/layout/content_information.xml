@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_information"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.ringtonemaker.activity.InformationActivity"
+    tools:showIn="@layout/activity_information">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvHowCreateRingtone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/how_to_create_ringtone"
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"/>
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvAnsToSetAlarmEveryHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/tvHowCreateRingtone"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvQuesToSetAlarmScheduledTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/tvAnsToSetAlarmEveryHour"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"/>
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvAnsToSetAlarmScheduledTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/tvQuesToSetAlarmScheduledTime"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvQuesToStopAlarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/tvAnsToSetAlarmScheduledTime"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"/>
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvAnsToStopAlarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/tvQuesToStopAlarm"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvQuesWhatTimeFormatIsSupported"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/tvAnsToStopAlarm"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"/>
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvAnsToWhatTimeFormatIsSupported"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/tvQuesWhatTimeFormatIsSupported"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvQuesCanWeCheckBothCheckboxTogether"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvAnsToWhatTimeFormatIsSupported"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp"/>
+
+            <!--<com.example.ringtonemaker.custom.CustomButton
+                android:id="@+id/tvAnsCanWeCheckBothCheckboxTogether"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/tvQuesCanWeCheckBothCheckboxTogether"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+-->
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

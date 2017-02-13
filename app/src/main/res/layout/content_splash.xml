@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.ringtonemaker.activity.SplashActivity"
+    tools:showIn="@layout/activity_splash">
+
+    <com.example.ringtonemaker.custom.CustomTextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ringtone Maker"
+        app:custom_font="mv_boli_v1"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_largest"
+        android:gravity="center_vertical"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/ivsplash_logo"
+        android:layout_marginBottom="@dimen/margin_medium_large"/>
+
+    <ImageView
+        android:id="@+id/ivsplash_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash_logo_800"
+        android:layout_centerInParent="true"/>
+
+    <com.example.ringtonemaker.custom.CustomTextView
+        android:id="@+id/tvLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        app:custom_font="mv_boli_v1"
+        android:textSize="@dimen/text_size_largest"
+        android:gravity="center_vertical"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/ivsplash_logo"
+        android:layout_marginTop="@dimen/margin_medium_large"/>
+</RelativeLayout>

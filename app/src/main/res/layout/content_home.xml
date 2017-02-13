@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ic_background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.ringtonemaker.activity.HomeActivity"
+    tools:showIn="@layout/activity_home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvCallerIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/caller"
+            android:layout_marginTop="@dimen/margin_largest"/>
+
+        <com.example.ringtonemaker.custom.CustomTextView
+            android:id="@+id/tvSpeakCallerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/speak_caller_name"
+            android:textStyle="bold"
+            app:custom_font="mv_boli_v1"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_large"
+            android:layout_marginTop="@dimen/margin_medium_large"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_large">
+
+            <TextView
+                android:id="@+id/tvon_off_slider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/on_off_slider"
+                android:layout_marginTop="@dimen/margin_xxlarge"/>
+
+            <TextView
+                android:id="@+id/tvOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/off"
+                android:layout_centerInParent="true"
+                android:layout_alignLeft="@+id/tvon_off_slider"
+                android:layout_alignStart="@+id/tvon_off_slider"
+                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp" />
+
+            <TextView
+                android:id="@+id/tvOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/on"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:layout_alignRight="@+id/tvon_off_slider"
+                android:layout_alignEnd="@+id/tvon_off_slider"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/line"
+        android:layout_marginTop="@dimen/margin_medium_small"
+        android:layout_marginLeft="@dimen/margin_xlargest"
+        android:layout_marginRight="@dimen/margin_xlargest"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvCreateIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/create"
+                android:layout_marginLeft="@dimen/margin_x2largest"
+                android:layout_marginTop="@dimen/margin_xxlargest"/>
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvCreateNewRingtone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create New"
+                app:custom_font="mv_boli_v1"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_large"
+                android:layout_below="@id/tvCreateIcon"
+                android:layout_marginLeft="@dimen/margin_xlargest"
+                android:layout_marginTop="@dimen/margin_small_tiny"/>
+
+            <TextView
+                android:id="@+id/tvListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list"
+                android:layout_marginLeft="@dimen/margin_xxx1largest"
+                android:layout_marginRight="@dimen/margin_xlargest"
+                android:layout_toRightOf="@+id/tvCreateIcon"
+                android:layout_marginTop="@dimen/margin_xxlargest"/>
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvDisplayAllRingtones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Ringtones"
+                app:custom_font="mv_boli_v1"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_large"
+                android:layout_below="@+id/tvListIcon"
+                android:layout_toRightOf="@id/tvCreateNewRingtone"
+                android:layout_marginLeft="@dimen/margin_xx1largest"
+                android:layout_marginRight="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_small_tiny"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

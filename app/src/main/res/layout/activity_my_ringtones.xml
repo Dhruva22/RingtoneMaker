@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.ringtonemaker.activity.MyRingtonesActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="@dimen/margin_largest">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvMyRingtones"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/title_activity_my_ringtones"
+                app:custom_font="mv_boli_v1"
+                android:textColor="@color/toolbar_text"
+                android:textSize="@dimen/text_size_xxlarge"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_x2largest"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <include layout="@layout/content_my_ringtones" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

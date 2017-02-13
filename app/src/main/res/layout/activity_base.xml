@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.ringtonemaker.activity.BaseActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="@dimen/margin_largest">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.ringtonemaker.custom.CustomTextView
+                android:id="@+id/tvBase"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/title_activity_base"
+                app:custom_font="avenir_heavy"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_xxlarge"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_x2largest"/>
+
+            <ImageView
+                android:id="@+id/ivapp_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_small_tiny"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_launcher"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <include layout="@layout/content_base" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

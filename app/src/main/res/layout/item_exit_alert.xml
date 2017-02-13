@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlAlertDialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/item_buttonshape"
+    android:gravity="center"
+    android:paddingTop="@dimen/margin_medium"
+    android:paddingBottom="@dimen/margin_medium">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_tiny">
+
+        <com.example.ringtonemaker.custom.CustomTextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alert"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_largest"
+            android:textStyle="bold"
+            app:custom_font="mv_boli_v1"
+            android:layout_marginTop="@dimen/margin_medium"/>
+
+        <com.example.ringtonemaker.custom.CustomTextView
+            android:id="@+id/txtAlertDailog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/do_you_want_to_exit"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_xxxlarge"
+            android:textStyle="bold"
+            app:custom_font="mv_boli_v1"
+            android:padding="@dimen/padding_tiny"
+            android:layout_marginTop="@dimen/margin_medium"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_medium">
+
+            <com.example.ringtonemaker.custom.CustomButton
+                android:id="@+id/btnAlertCancle"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="@string/cancel"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_large"
+                app:custom_font="mv_boli_v1"
+                android:layout_marginRight="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large"/>
+
+            <com.example.ringtonemaker.custom.CustomButton
+                android:id="@+id/btnAlertExit"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="@string/exit"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_large"
+                app:custom_font="mv_boli_v1"
+                android:layout_marginTop="@dimen/margin_large"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
