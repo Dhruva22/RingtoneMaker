@@ -273,8 +273,14 @@ public class RingtoneMakerActivity extends BaseActivity implements
     @OnClick({R.id.btnSave, R.id.btnPlay, R.id.btnSetAs})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnSave: {
-                if (tts.isSpeaking()) {
+            case R.id.btnSave:
+            {
+                if(!btnSave.isEnabled())
+                {
+                    Toast.makeText(this, "Please enter th text and play to save!!!", Toast.LENGTH_SHORT).show();
+                }
+                if (tts.isSpeaking())
+                {
                     tts.stop();
                 }
                 if (hasPermissions(RingtoneMakerActivity.this, PERMISSIONS))
@@ -291,6 +297,7 @@ public class RingtoneMakerActivity extends BaseActivity implements
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String tempFilename = input.getText().toString() + ".mp3";
+                            tempFilename = tempFilename.trim();
                             destinationFile = path.getAbsolutePath() + tempFilename;
                             if (tts.synthesizeToFile(str_ringtone, myHashRender, destinationFile)
                                     == TextToSpeech.SUCCESS) {
@@ -403,7 +410,12 @@ public class RingtoneMakerActivity extends BaseActivity implements
                 }
                 break;
             }
-            case R.id.btnSetAs: {
+            case R.id.btnSetAs:
+            {
+                if(!btnSetAs.isEnabled())
+                {
+                    Toast.makeText(this, "Please save the tone first to set as ringtone, notification or alarm tone!!! ", Toast.LENGTH_SHORT).show();
+                }
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(RingtoneMakerActivity.this);
                 alertDialog.setTitle("Set As:");
 
@@ -510,9 +522,10 @@ public class RingtoneMakerActivity extends BaseActivity implements
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    public void onBackPressed()
+    {
         finish();
+        super.onBackPressed();
     }
 
     private void speakOut(String str_ringtone) {

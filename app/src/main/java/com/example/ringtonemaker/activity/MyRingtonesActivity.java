@@ -81,5 +81,6 @@ public class MyRingtonesActivity extends BaseActivity {
     {
         Intent createRingtone = new Intent(MyRingtonesActivity.this,RingtoneMakerActivity.class);
         startActivity(createRingtone);
+        finish();
     }
 }
