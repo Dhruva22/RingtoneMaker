@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_ringtone_maker"
@@ -14,10 +14,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,32 +28,31 @@
                 android:id="@+id/tvSelectPrefixLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_medium_large"
+                android:layout_marginTop="@dimen/margin_large"
                 android:text="@string/prefix_label"
-                app:custom_font="mv_boli_v1"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_size_large"
-                android:textAlignment="center"
-                android:layout_marginTop="@dimen/margin_large"
-                android:layout_marginLeft="@dimen/margin_medium_large"/>
+                app:custom_font="mv_boli_v1" />
 
             <Spinner
                 android:id="@+id/spPrefix"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/margin_small"
+                android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/margin_xx1largest"
-                android:layout_marginTop="@dimen/margin_medium_large">
-            </Spinner>
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium_large"></Spinner>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"
                 android:layout_below="@+id/spPrefix"
                 android:layout_marginLeft="@dimen/margin_xxx1largest"
-                android:layout_marginRight="@dimen/margin_medium_small"/>
+                android:layout_marginRight="@dimen/margin_medium_small"
+                android:background="@android:color/black" />
 
         </RelativeLayout>
 
@@ -61,26 +60,26 @@
             android:id="@+id/tvEnterNameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium_large"
+            android:layout_marginTop="@dimen/margin_xlarge"
             android:text="@string/enter_name"
-            app:custom_font="mv_boli_v1"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_size_large"
-            android:layout_marginTop="@dimen/margin_xlarge"
-            android:layout_marginLeft="@dimen/margin_medium_large"/>
+            app:custom_font="mv_boli_v1" />
 
         <com.example.ringtonemaker.custom.CustomEditText
             android:id="@+id/etEnterName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xlargest"
+            android:layout_marginRight="@dimen/margin_xlargest"
             android:backgroundTint="@android:color/black"
             android:hint="Type your text here"
             android:singleLine="true"
-            app:custom_font="mv_boli_v1"
+            android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_size_large"
-            android:textAlignment="center"
-            android:layout_marginLeft="@dimen/margin_xlargest"
-            android:layout_marginRight="@dimen/margin_xlargest"/>
+            app:custom_font="mv_boli_v1" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -90,23 +89,23 @@
                 android:id="@+id/tvSelectPostfixLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/postfix_label"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:textAlignment="center"
-                android:textSize="@dimen/text_size_large"
-                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_medium_large"
                 android:layout_marginTop="@dimen/margin_medium_large"
-                android:layout_marginLeft="@dimen/margin_medium_large"/>
+                android:gravity="center_vertical"
+                android:text="@string/postfix_label"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_large"
+                app:custom_font="mv_boli_v1" />
 
             <Spinner
                 android:id="@+id/spPostfix"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/margin_small"
+                android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/margin_xx2largest"
+                android:layout_marginRight="@dimen/margin_small"
                 android:layout_marginTop="@dimen/margin_medium_large">
 
             </Spinner>
@@ -114,10 +113,10 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"
                 android:layout_below="@+id/spPostfix"
                 android:layout_marginLeft="@dimen/margin_xxx1largest"
-                android:layout_marginRight="@dimen/margin_medium_small"/>
+                android:layout_marginRight="@dimen/margin_medium_small"
+                android:background="@android:color/black" />
 
         </RelativeLayout>
 
@@ -130,21 +129,21 @@
                 android:id="@+id/tvLanguageLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_medium_large"
+                android:layout_marginTop="@dimen/margin_large"
                 android:text="@string/language_label"
-                app:custom_font="mv_boli_v1"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_size_large"
-                android:layout_marginLeft="@dimen/margin_medium_large"
-                android:layout_marginTop="@dimen/margin_large"/>
+                app:custom_font="mv_boli_v1" />
 
             <Spinner
                 android:id="@+id/spLanguage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/margin_small"
+                android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/margin_xxx1largest"
+                android:layout_marginRight="@dimen/margin_small"
                 android:layout_marginTop="@dimen/margin_medium_large">
 
             </Spinner>
@@ -152,10 +151,10 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"
                 android:layout_below="@+id/spLanguage"
                 android:layout_marginLeft="@dimen/margin_xxx1largest"
-                android:layout_marginRight="@dimen/margin_medium_small"/>
+                android:layout_marginRight="@dimen/margin_medium_small"
+                android:background="@android:color/black" />
 
         </RelativeLayout>
 
@@ -168,28 +167,28 @@
                 android:id="@+id/tvVolumeLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/margin_medium_large"
+                android:layout_marginTop="@dimen/margin_large"
                 android:text="@string/volume_label"
-                app:custom_font="mv_boli_v1"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_size_large"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="@dimen/margin_medium_large"
-                android:layout_marginTop="@dimen/margin_large"/>
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvVolume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_xlarge"
+                android:layout_marginTop="@dimen/margin_large"
                 android:text="20"
-                app:custom_font="mv_boli_v1"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_size_medium_large"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="@dimen/margin_xlarge"
-                android:layout_marginTop="@dimen/margin_large"/>
+                app:custom_font="mv_boli_v1" />
 
         </RelativeLayout>
 
@@ -211,44 +210,63 @@
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btnsave"
-                android:background="@drawable/button_background_maker"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:textAlignment="center"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="@dimen/margin_xxxxlarge"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:enabled="false"/>
+                android:background="@drawable/button_background_maker"
+                android:enabled="false"
+                android:text="@string/btnsave"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <ImageButton
                 android:id="@+id/btnPlay"
+                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/play"
                 android:layout_centerInParent="true"
-                style="?attr/borderlessButtonStyle"
+                android:layout_marginLeft="@dimen/margin_large"
                 android:paddingRight="@dimen/padding_large"
-                android:layout_marginLeft="@dimen/margin_large"/>
+                android:src="@drawable/play" />
 
             <com.example.ringtonemaker.custom.CustomButton
                 android:id="@+id/btnSetAs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background_maker"
-                android:text="@string/btn_set_as"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:textAlignment="center"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/margin_xxxxlarge"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:enabled="false"/>
+                android:background="@drawable/button_background_maker"
+                android:enabled="false"
+                android:text="@string/btn_set_as"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/rlAds"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/ad_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_gravity="bottom"
+
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_id" />
+
+    </RelativeLayout>
 </RelativeLayout>

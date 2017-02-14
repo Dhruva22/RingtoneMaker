@@ -20,19 +20,22 @@
     <string name="do_you_want_to_exit">Do you want to exit?</string>
     <string name="cancel">Cancel</string>
     <string name="exit">Exit</string>
+    <string name="intestial_ad_unit_id">ca-app-pub-1265462765766610/6012500283</string>
+    <string name="banner_id">ca-app-pub-1265462765766610/4535767087</string>
     <string name="title_activity_information">InformationActivity</string>
     <string name="how_to_create_ringtone">How to create Ringtone?</string>
-    <string name="ans_to_create_ringtone">Select desired prefix \nEnter your name or any message \nSelect desired postfix \nSelect language \nSet proper volume \nand click play</string>
+    <string name="ans_to_create_ringtone">- Select desired prefix \n Enter your name or any message \n Select desired postfix \n Select language \n Set proper volume \n and click play</string>
     <string name="no_prefix_or_postfix">What if I don\'t want any prefix or postfix?</string>
-    <string name="ans_to_no_prefix_or_postfix">If you dont\'t want any prefix or postfix select none option.</string>
+    <string name="ans_to_no_prefix_or_postfix">- If you don\'t want any prefix or postfix select none option.</string>
     <string name="no_change_in_language">My language is not changing when I select any other except English?</string>
-    <string name="ans_to_language_change">To change language you need to change the language of your keyboard.</string>
+    <string name="ans_to_language_change">- To change language you need to change the language of your keyboard.</string>
     <string name="save_button_not_working">Save button not working?</string>
-    <string name="ans_to_enable_save_button">To enable save button you need to atleast enter some text and play it once</string>
-    <string name="ques_set_as_button_not_working">I am not able to set tone as ringtone, notification tone or alarm tone</string>
-    <string name="ans_to_set_as_ringtone_notification_or_alarm">To set any tone as ringtone, notification tone or alarm tone you need to first save it with proper name</string>
-    <string name="like_ringtone_notification_tone_and_alarm_tone_is_not_set_directly">Like ringtone, notification tone and alarm tone is not set directly</string>
-    <string name="ans_to_notification_or_alarm_not_set_directly">When you set as notification tone or alarm tone it is added in the list \nTo set it you need to manually go to settings and change your notification tone and alarm tone</string>
+    <string name="ans_to_enable_save_button">- To enable save button you need to atleast enter some text and play it once</string>
+    <string name="ques_set_as_button_not_working">I am not able to set tone as ringtone, notification tone or alarm tone \n Any suggestion?</string>
+    <string name="ans_to_set_as_ringtone_notification_or_alarm">- To set any tone as ringtone, notification tone or alarm tone you need to first save it with proper name</string>
+    <string name="like_ringtone_notification_tone_and_alarm_tone_is_not_set_directly">Like ringtone, How can I set notification tone and alarm tone directly?</string>
+    <string name="ans_to_notification_or_alarm_not_set_directly">- When you set as notification tone or alarm tone it is added in the list \nTo set it you need to manually go to settings and change your notification tone and alarm tone</string>
+    <string name="title_activity_priacy_policy">PriacyPolicyActivity</string>
 
 
 </resources>

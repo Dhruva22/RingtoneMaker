@@ -20,7 +20,7 @@ public class Util
     public static File getStoragePath(Context context)
     {
         String root = Environment.getExternalStorageDirectory().getAbsolutePath();
-        File path = new File(root + "/Ringtone_Maker/");
+        File path = new File(root + "/Ringtone_Maker");
         if(!path.exists())
         {
             path.mkdirs();

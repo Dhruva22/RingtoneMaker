@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardUseCompatPadding="true"
-        app:cardElevation="4dp"
-        android:layout_marginTop="@dimen/margin_small">
+        app:cardElevation="4dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -44,7 +43,7 @@
                     android:gravity="center_vertical"
                     android:paddingBottom="@dimen/padding_small_tiny"
                     android:layout_marginLeft="@dimen/margin_small_tiny"
-                    android:layout_marginTop="@dimen/margin_medium"
+                    android:paddingTop="@dimen/padding_medium"
                     android:layout_toRightOf="@+id/ivMusicIcon"
                     android:maxLength="20"/>
 
@@ -56,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/margin_medium">
+                android:paddingTop="@dimen/padding_medium">
 
                 <ImageView
                     android:id="@+id/ivShare"
@@ -65,7 +64,7 @@
                     android:src="@drawable/ic_share"
                     android:paddingBottom="@dimen/padding_small_tiny"
                     android:layout_toLeftOf="@+id/ivPlay"
-                    android:layout_marginRight="@dimen/margin_tiny"/>
+                    android:layout_marginRight="@dimen/margin_small_tiny"/>
 
                 <ImageView
                     android:id="@+id/ivPlay"
@@ -74,7 +73,7 @@
                     android:src="@drawable/ic_play"
                     android:paddingBottom="@dimen/padding_small_tiny"
                     android:layout_toLeftOf="@+id/ivDelete"
-                    android:layout_marginRight="@dimen/margin_tiny"/>
+                    android:layout_marginRight="@dimen/margin_small_tiny"/>
 
                 <ImageView
                     android:id="@+id/ivDelete"

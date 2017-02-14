@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_information"
@@ -16,6 +17,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/rlAds"
         android:scrollbars="vertical">
 
         <RelativeLayout
@@ -26,139 +28,159 @@
                 android:id="@+id/tvHowCreateRingtone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/how_to_create_ringtone"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"/>
+                android:text="@string/how_to_create_ringtone"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvAnsToCreateRingtone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ans_to_create_ringtone"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:layout_below="@+id/tvHowCreateRingtone"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvHowCreateRingtone"
+                android:text="@string/ans_to_create_ringtone"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvPrefixPostfixSelection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no_prefix_or_postfix"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:layout_below="@+id/tvAnsToCreateRingtone"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="13dp"/>
+                android:layout_below="@+id/tvAnsToCreateRingtone"
+                android:layout_marginTop="13dp"
+                android:text="@string/no_prefix_or_postfix"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvAnsToPrefixPostfixSelection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ans_to_no_prefix_or_postfix"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:layout_below="@+id/tvPrefixPostfixSelection"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvPrefixPostfixSelection"
+                android:text="@string/ans_to_no_prefix_or_postfix"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvQuesToSelectLanguage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no_change_in_language"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:layout_below="@+id/tvAnsToPrefixPostfixSelection"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="13dp"/>
+                android:layout_below="@+id/tvAnsToPrefixPostfixSelection"
+                android:layout_marginTop="13dp"
+                android:text="@string/no_change_in_language"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvAnsToSelectLanguage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ans_to_language_change"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:layout_below="@+id/tvQuesToSelectLanguage"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvQuesToSelectLanguage"
+                android:text="@string/ans_to_language_change"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvQuesSaveButtonNotWorking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/save_button_not_working"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:layout_below="@+id/tvAnsToSelectLanguage"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="13dp"/>
+                android:layout_below="@+id/tvAnsToSelectLanguage"
+                android:layout_marginTop="13dp"
+                android:text="@string/save_button_not_working"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvAnsToSaveButtonNotWorking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ans_to_enable_save_button"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:layout_below="@+id/tvQuesSaveButtonNotWorking"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvQuesSaveButtonNotWorking"
+                android:text="@string/ans_to_enable_save_button"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvQuesSetAsButtonNotWorking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvAnsToSaveButtonNotWorking"
-                android:text="@string/ques_set_as_button_not_working"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="13dp"/>
+                android:layout_below="@+id/tvAnsToSaveButtonNotWorking"
+                android:layout_marginTop="13dp"
+                android:text="@string/ques_set_as_button_not_working"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvAnsToSetAsButtonNotWorking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_below="@+id/tvQuesSetAsButtonNotWorking"
                 android:text="@string/ans_to_set_as_ringtone_notification_or_alarm"
-                app:custom_font="mv_boli_v1"
                 android:textColor="@android:color/black"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvQuesNotificationToneAlarmToneNotSetDirectly"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/like_ringtone_notification_tone_and_alarm_tone_is_not_set_directly"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:layout_below="@+id/tvAnsToSetAsButtonNotWorking"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="13dp"/>
+                android:layout_below="@+id/tvAnsToSetAsButtonNotWorking"
+                android:layout_marginTop="13dp"
+                android:text="@string/like_ringtone_notification_tone_and_alarm_tone_is_not_set_directly"
+                android:textColor="@android:color/black"
+                app:custom_font="mv_boli_v1" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvAnsToNotificationToneAlarmToneNotSetDirectly"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_below="@+id/tvQuesNotificationToneAlarmToneNotSetDirectly"
                 android:text="@string/ans_to_notification_or_alarm_not_set_directly"
-                app:custom_font="mv_boli_v1"
                 android:textColor="@android:color/black"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
---
+                app:custom_font="mv_boli_v1" />
+            --
         </RelativeLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlAds"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/ad_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_gravity="bottom"
+
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_id" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

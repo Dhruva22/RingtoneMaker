@@ -40,7 +40,7 @@
             android:name=".activity.HomeActivity"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver
             android:name=".receiver.PhoneReceiver"
@@ -58,7 +58,8 @@
             android:label="@string/title_activity_ringtone_maker"
             android:parentActivityName=".activity.HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ringtonemaker.activity.HomeActivity" />
@@ -76,6 +77,10 @@
         <activity
             android:name=".activity.InformationActivity"
             android:label="@string/title_activity_information"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.PrivacyPolicyActivity"
+            android:label="@string/title_activity_priacy_policy"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

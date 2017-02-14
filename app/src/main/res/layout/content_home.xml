@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/ic_background"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.ringtonemaker.activity.HomeActivity"
     tools:showIn="@layout/activity_home">
@@ -15,26 +15,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvCallerIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/caller"
-            android:layout_marginTop="@dimen/margin_largest"/>
+            android:layout_marginTop="@dimen/margin_largest"
+            android:background="@drawable/caller" />
 
         <com.example.ringtonemaker.custom.CustomTextView
             android:id="@+id/tvSpeakCallerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_large"
             android:text="@string/speak_caller_name"
-            android:textStyle="bold"
-            app:custom_font="mv_boli_v1"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_size_large"
-            android:layout_marginTop="@dimen/margin_medium_large"/>
+            android:textStyle="bold"
+            app:custom_font="mv_boli_v1" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -47,31 +47,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@drawable/on_off_slider"
-                android:layout_marginTop="@dimen/margin_xxlarge"/>
+                android:layout_marginTop="@dimen/margin_xxlarge"
+                android:background="@drawable/on_off_slider" />
 
             <TextView
                 android:id="@+id/tvOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/off"
-                android:layout_centerInParent="true"
                 android:layout_alignLeft="@+id/tvon_off_slider"
                 android:layout_alignStart="@+id/tvon_off_slider"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginEnd="30dp" />
+                android:background="@drawable/off" />
 
             <TextView
                 android:id="@+id/tvOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/on"
-                android:layout_centerInParent="true"
-                android:visibility="gone"
-                android:layout_alignRight="@+id/tvon_off_slider"
                 android:layout_alignEnd="@+id/tvon_off_slider"
+                android:layout_alignRight="@+id/tvon_off_slider"
+                android:layout_centerInParent="true"
                 android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"/>
+                android:layout_marginStart="30dp"
+                android:background="@drawable/on"
+                android:visibility="gone" />
 
 
         </RelativeLayout>
@@ -81,10 +81,10 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="@drawable/line"
-        android:layout_marginTop="@dimen/margin_medium_small"
         android:layout_marginLeft="@dimen/margin_xlargest"
-        android:layout_marginRight="@dimen/margin_xlargest"/>
+        android:layout_marginRight="@dimen/margin_xlargest"
+        android:layout_marginTop="@dimen/margin_medium_small"
+        android:background="@drawable/line" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,47 +99,67 @@
                 android:id="@+id/tvCreateIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/create"
                 android:layout_marginLeft="@dimen/margin_x2largest"
-                android:layout_marginTop="@dimen/margin_xxlargest"/>
+                android:layout_marginTop="@dimen/margin_xxlargest"
+                android:background="@drawable/create" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvCreateNewRingtone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create New"
-                app:custom_font="mv_boli_v1"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:textSize="@dimen/text_size_large"
                 android:layout_below="@id/tvCreateIcon"
                 android:layout_marginLeft="@dimen/margin_xlargest"
-                android:layout_marginTop="@dimen/margin_small_tiny"/>
+                android:layout_marginTop="@dimen/margin_small_tiny"
+                android:text="Create New"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                app:custom_font="mv_boli_v1" />
 
             <TextView
                 android:id="@+id/tvListIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/list"
                 android:layout_marginLeft="@dimen/margin_xxx1largest"
                 android:layout_marginRight="@dimen/margin_xlargest"
+                android:layout_marginTop="@dimen/margin_xxlargest"
                 android:layout_toRightOf="@+id/tvCreateIcon"
-                android:layout_marginTop="@dimen/margin_xxlargest"/>
+                android:background="@drawable/list" />
 
             <com.example.ringtonemaker.custom.CustomTextView
                 android:id="@+id/tvDisplayAllRingtones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="My Ringtones"
-                app:custom_font="mv_boli_v1"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/text_size_large"
                 android:layout_below="@+id/tvListIcon"
-                android:layout_toRightOf="@id/tvCreateNewRingtone"
                 android:layout_marginLeft="@dimen/margin_xx1largest"
                 android:layout_marginRight="@dimen/margin_large"
-                android:layout_marginTop="@dimen/margin_small_tiny"/>
+                android:layout_marginTop="@dimen/margin_small_tiny"
+                android:layout_toRightOf="@id/tvCreateNewRingtone"
+                android:text="My Ringtones"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                app:custom_font="mv_boli_v1" />
+
+            <RelativeLayout
+                android:id="@+id/rlAds"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone">
+
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/ad_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+
+                    android:layout_gravity="bottom"
+
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/banner_id" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

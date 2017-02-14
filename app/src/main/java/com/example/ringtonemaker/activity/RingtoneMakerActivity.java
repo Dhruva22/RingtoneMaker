@@ -20,13 +20,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.view.inputmethod.InputMethodSubtype;
+
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -38,6 +37,10 @@ import com.example.ringtonemaker.custom.CustomEditText;
 import com.example.ringtonemaker.custom.CustomTextView;
 import com.example.ringtonemaker.database.DBHandler;
 import com.example.ringtonemaker.model.Ringtones;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -120,13 +123,49 @@ public class RingtoneMakerActivity extends BaseActivity implements
     String[] PERMISSIONS = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    InterstitialAd mInterstitialAd;
+
+    RelativeLayout rlAds;
+    AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ringtone_maker);
         ButterKnife.bind(this);
+        rlAds = (RelativeLayout) findViewById(R.id.rlAds);
+        adView = (AdView) findViewById(R.id.ad_view);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        adView.loadAd(adRequest);
 
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                rlAds.setVisibility(View.VISIBLE);
+                super.onAdLoaded();
+
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+
+            }
+        });
+
+
+        mInterstitialAd = new InterstitialAd(RingtoneMakerActivity.this);
+        mInterstitialAd.setAdUnitId(getString(R.string.intestial_ad_unit_id));
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+
+            }
+        });
+        requestNewInterstitial();
         Intent checkIntent = new Intent();
         checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         startActivityForResult(checkIntent, REQ_TTS_STATUS_CHECK);
@@ -273,59 +312,56 @@ public class RingtoneMakerActivity extends BaseActivity implements
     @OnClick({R.id.btnSave, R.id.btnPlay, R.id.btnSetAs})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnSave:
-            {
-                if(!btnSave.isEnabled())
-                {
+            case R.id.btnSave: {
+                if (!btnSave.isEnabled()) {
                     Toast.makeText(this, "Please enter th text and play to save!!!", Toast.LENGTH_SHORT).show();
                 }
-                if (tts.isSpeaking())
-                {
+                if (tts.isSpeaking()) {
                     tts.stop();
                 }
-                if (hasPermissions(RingtoneMakerActivity.this, PERMISSIONS))
-                {
+                if (hasPermissions(RingtoneMakerActivity.this, PERMISSIONS)) {
                     myHashRender.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, str_ringtone);
                     final EditText input = new EditText(RingtoneMakerActivity.this);
                     AlertDialog.Builder alert = new AlertDialog.Builder(RingtoneMakerActivity.this);
                     alert.setTitle("Save As:");
                     alert.setView(input);
-                    alert.setPositiveButton("Ok", new DialogInterface.
-                            OnClickListener() {
-                        File path = getStoragePath(RingtoneMakerActivity.this);
+                    if (!input.getText().equals("")) {
+                        alert.setPositiveButton("Ok", new DialogInterface.
+                                OnClickListener() {
+                            File path = getStoragePath(RingtoneMakerActivity.this);
 
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String tempFilename = input.getText().toString() + ".mp3";
-                            tempFilename = tempFilename.trim();
-                            destinationFile = path.getAbsolutePath() + tempFilename;
-                            if (tts.synthesizeToFile(str_ringtone, myHashRender, destinationFile)
-                                    == TextToSpeech.SUCCESS) {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String tempFilename = input.getText().toString().trim() + ".mp3";
+                                Log.e("path_maker", path.getAbsolutePath());
+                                destinationFile = path.getAbsolutePath() + "/" + tempFilename;
+                                Log.e("desti_file_maker", destinationFile);
+                                if (tts.synthesizeToFile(str_ringtone, myHashRender, destinationFile)
+                                        == TextToSpeech.SUCCESS) {
 
-                                id = ++size;
-                                Ringtones ringtones = new Ringtones();
-                                ringtones.setId(++id);
-                                ringtones.setRingtone_name(tempFilename);
-                                ringtones.setRingtone_source(destinationFile);
-                                dbHandler.addRingtone(ringtones);
-                                savePath("path", destinationFile);
-                                btnSetAs.setEnabled(true);
-                                new SweetAlertDialog(RingtoneMakerActivity.this, SweetAlertDialog.SUCCESS_TYPE)
-                                        .setTitleText("Good job!")
-                                        .setContentText("Sound file created!")
-                                        .show();
-                                //Toast.makeText(getBaseContext(), "Sound file created", Toast.LENGTH_SHORT).show();
+                                    id = ++size;
+                                    Ringtones ringtones = new Ringtones();
+                                    ringtones.setId(++id);
+                                    ringtones.setRingtone_name(tempFilename);
+                                    ringtones.setRingtone_source(destinationFile);
+                                    dbHandler.addRingtone(ringtones);
+                                    savePath("path", destinationFile);
+                                    btnSetAs.setEnabled(true);
+                                    new SweetAlertDialog(RingtoneMakerActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                            .setTitleText("Good job!")
+                                            .setContentText("Sound file created!")
+                                            .show();
+                                    //Toast.makeText(getBaseContext(), "Sound file created", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    new SweetAlertDialog(RingtoneMakerActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                            .setTitleText("Oops...")
+                                            .setContentText("Sound file not created!")
+                                            .show();
+                                    //Toast.makeText(getBaseContext(), "Oops! Sound file not created", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                            else
-                            {
-                                new SweetAlertDialog(RingtoneMakerActivity.this, SweetAlertDialog.ERROR_TYPE)
-                                        .setTitleText("Oops...")
-                                        .setContentText("Sound file not created!")
-                                        .show();
-                                //Toast.makeText(getBaseContext(), "Oops! Sound file not created", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                        });
+                    }
 
                     alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
@@ -362,9 +398,7 @@ public class RingtoneMakerActivity extends BaseActivity implements
                     spPrefix.setFocusable(true);
                     btnSave.setEnabled(false);
                     btnSetAs.setEnabled(false);
-                }
-                else
-                {
+                } else {
                     btnSave.setEnabled(true);
 
 
@@ -410,10 +444,8 @@ public class RingtoneMakerActivity extends BaseActivity implements
                 }
                 break;
             }
-            case R.id.btnSetAs:
-            {
-                if(!btnSetAs.isEnabled())
-                {
+            case R.id.btnSetAs: {
+                if (!btnSetAs.isEnabled()) {
                     Toast.makeText(this, "Please save the tone first to set as ringtone, notification or alarm tone!!! ", Toast.LENGTH_SHORT).show();
                 }
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(RingtoneMakerActivity.this);
@@ -434,8 +466,7 @@ public class RingtoneMakerActivity extends BaseActivity implements
                             if (Settings.System.canWrite(RingtoneMakerActivity.this)) {
                                 String path = getSharedPreferences("RINGTONE_MAKER", 0).getString("path", "");
                                 String strName = Arrays.asList(setAs).get(which);
-                                if (strName.equals("Ringtone"))
-                                {
+                                if (strName.equals("Ringtone")) {
                                     File k = new File(path);
 
                                     ContentValues values = new ContentValues();
@@ -457,8 +488,7 @@ public class RingtoneMakerActivity extends BaseActivity implements
                                             RingtoneManager.TYPE_RINGTONE,
                                             newUri
                                     );
-                                }
-                                else if (strName.equals("SMS Tone")) {
+                                } else if (strName.equals("SMS Tone")) {
                                     File k = new File(path);
 
                                     ContentValues values = new ContentValues();
@@ -480,9 +510,7 @@ public class RingtoneMakerActivity extends BaseActivity implements
                                             RingtoneManager.TYPE_RINGTONE,
                                             newUri
                                     );
-                                }
-                                else
-                                {
+                                } else {
                                     File k = new File(path);
 
                                     ContentValues values = new ContentValues();
@@ -522,14 +550,18 @@ public class RingtoneMakerActivity extends BaseActivity implements
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+
+        }
+
         finish();
-        super.onBackPressed();
     }
 
     private void speakOut(String str_ringtone) {
-        AudioManager am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         /*int amStreamMusicMaxVol = am.getStreamMaxVolume(am.STREAM_MUSIC);*/
         int amStreamMusicMaxVol = Integer.parseInt(tvVolume.getText().toString());
         am.setStreamVolume(am.STREAM_MUSIC, amStreamMusicMaxVol, 0);
@@ -550,8 +582,7 @@ public class RingtoneMakerActivity extends BaseActivity implements
         editor.commit();
     }
 
-    private void requestToPermissions()
-    {
+    private void requestToPermissions() {
         if (!hasPermissions(this, PERMISSIONS)) {
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
         }
@@ -577,4 +608,13 @@ public class RingtoneMakerActivity extends BaseActivity implements
             }
         }
     }
+
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mInterstitialAd.loadAd(adRequest);
+    }
+
 }

@@ -9,6 +9,9 @@ import android.widget.RelativeLayout;
 
 import com.example.ringtonemaker.R;
 import com.example.ringtonemaker.custom.CustomTextView;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,8 +23,9 @@ public class SplashActivity extends BaseActivity {
     RelativeLayout contentSplash;
     @BindView(R.id.tvAppName)
     CustomTextView tvAppName;
+    InterstitialAd mInterstitialAd;
 
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 3500;
     CountDownTimer waitTimer;
 
     @Override
@@ -33,6 +37,17 @@ public class SplashActivity extends BaseActivity {
 
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
+        mInterstitialAd = new InterstitialAd(SplashActivity.this);
+        mInterstitialAd.setAdUnitId(getString(R.string.intestial_ad_unit_id));
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+
+            }
+        });
+        requestNewInterstitial();
+
         waitTimer = new CountDownTimer(SPLASH_TIME_OUT, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -41,11 +56,16 @@ public class SplashActivity extends BaseActivity {
 
             }
 
-            public void onFinish()
-            {
+            public void onFinish() {
 
                 Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                 startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+
+                }
+
                 finish();
 
             }
@@ -62,6 +82,13 @@ public class SplashActivity extends BaseActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mInterstitialAd.loadAd(adRequest);
     }
 
 }

@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import com.example.ringtonemaker.model.Ringtones;
 
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper
 {
+
     private static final String DATABASE_NAME = "RingtoneMaker";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "MyRingtones";
@@ -34,7 +34,7 @@ public class DBHandler extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase)
     {
-        String CREATE_APPLICATIONS_TABLE = "CREATE TABLE "
+        String CREATE_APPLICATIONS_TABLE = "CREATE TABLE IF NOT EXISTS "
                 + TABLE_NAME
                 + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY,"

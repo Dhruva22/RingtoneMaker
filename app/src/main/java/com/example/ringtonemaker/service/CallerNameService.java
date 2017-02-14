@@ -2,7 +2,10 @@ package com.example.ringtonemaker.service;
 
 import android.app.Service;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -21,51 +24,44 @@ import java.util.HashMap;
  */
 
 public class CallerNameService extends Service
-        implements TextToSpeech.OnInitListener
-{
+        implements TextToSpeech.OnInitListener {
     int result = 0;
     TextToSpeech tts;
-    String str_ringtone = "",path="",ringtoneName="";
+    String str_ringtone = "", path = "";
     RingtoneManager ringtoneManager;
-    Ringtone defaultRingtone;
-    Uri defaultRingtoneUri;
-    String ringing_state = "";
+
     private static final int REQ_TTS_STATUS_CHECK = 0;
     private static final String TAG = "TTS Demo";
+
     HashMap<String, String> myHashRender = new HashMap<String, String>();
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
+    public int onStartCommand(Intent intent, int flags, int startId) {
 
-        Log.e("CallerNameService","onCreate of Service called");
+        final int[] volume = new int[1];
+        AudioManager am =
+                (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        String RingtoneUri = intent.getStringExtra("ringtone_uri");
+        volume[0] = am.getStreamVolume(AudioManager.STREAM_RING);
+        am.setStreamVolume(AudioManager.STREAM_RING, 0, AudioManager.FLAG_PLAY_SOUND);
+        am.setStreamVolume(AudioManager.STREAM_MUSIC, am.getStreamMaxVolume(AudioManager.STREAM_MUSIC), AudioManager.FLAG_PLAY_SOUND);
+
+        Log.e("CallerNameService", "onCreate of Service called");
+
         String caller_name = intent.getStringExtra("caller_name");
 
+        Log.e("caller", caller_name);
+
         tts = new TextToSpeech(this, this);
-
-        defaultRingtoneUri = Uri.parse(RingtoneUri);
-        Log.i("default",defaultRingtoneUri+"");
-        path = defaultRingtoneUri.getPath();
-
-        defaultRingtone = RingtoneManager.getRingtone(this, defaultRingtoneUri);
-        ringtoneName = defaultRingtone.getTitle(this);
-
-        path = new File(path).getParent();
-        Log.i("ringtoneName",ringtoneName);
 
         str_ringtone = "Hey " + caller_name + " is calling you,pic up the phone";
 
         myHashRender.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, str_ringtone);
 
         if (result == TextToSpeech.LANG_MISSING_DATA ||
-                result == TextToSpeech.LANG_NOT_SUPPORTED)
-        {
+                result == TextToSpeech.LANG_NOT_SUPPORTED) {
             Log.e("TTS", "This Language is not supported");
-        }
-        else
-        {
+        } else {
 
         }
 
@@ -73,8 +69,7 @@ public class CallerNameService extends Service
     }
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         ringtoneManager = new RingtoneManager(this);
         super.onCreate();
     }
@@ -88,8 +83,7 @@ public class CallerNameService extends Service
     @Override
     public void onInit(int status) {
 
-        if (status == TextToSpeech.SUCCESS)
-        {
+        if (status == TextToSpeech.SUCCESS) {
             speakOut(str_ringtone);
 
         } else {
@@ -97,48 +91,37 @@ public class CallerNameService extends Service
         }
     }
 
-    private void speakOut(String str_ringtone)
-    {
-        tts.speak(str_ringtone, TextToSpeech.QUEUE_FLUSH, myHashRender);
+    @Override
+    public void onDestroy() {
+        tts.stop();
+        tts = null;
+        super.onDestroy();
+    }
+
+    private void speakOut(String str_ringtone) {
+        //final int[] volume = new int[1];
+        Log.i("path", path);
+        final String ring = str_ringtone;
+    /*    myHashRender.put(TextToSpeech.Engine.KEY_PARAM_STREAM,
+                String.valueOf(AudioManager.STREAM_MUSIC));
+    */    tts.speak(str_ringtone, TextToSpeech.QUEUE_FLUSH, myHashRender);
 
         tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
             @Override
-            public void onStart(String utteranceId)
-            {
+            public void onStart(String utteranceId) {
+               /* AudioManager am =
+                        (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+                volume[0] = am.getStreamVolume(AudioManager.STREAM_RING);
+                am.setStreamVolume(AudioManager.STREAM_RING, 0, AudioManager.FLAG_PLAY_SOUND);*/
 
             }
 
             @Override
-            public void onDone(String utteranceId)
-            {
-                Log.e("done",utteranceId);
-                tts.stop();
-                tts = null;
+            public void onDone(String utteranceId) {
+                Log.e("done", utteranceId);
 
-                path = path + "/" + ringtoneName;
-                Log.i("uri",path);
-                File k = new File(path);
-
-                Log.i("path",k.getAbsolutePath());
-                Log.i("name",k.getName());
-
-                ContentValues values = new ContentValues();
-                values.put(MediaStore.MediaColumns.DATA, "content://media" + k.getAbsolutePath());
-                values.put(MediaStore.MediaColumns.TITLE, k.getName());
-                values.put(MediaStore.MediaColumns.MIME_TYPE, "audio/*");
-                values.put(MediaStore.Audio.Media.DURATION, 230);
-                values.put(MediaStore.Audio.Media.IS_RINGTONE, true);
-                values.put(MediaStore.Audio.Media.IS_NOTIFICATION, false);
-                values.put(MediaStore.Audio.Media.IS_ALARM, false);
-                values.put(MediaStore.Audio.Media.IS_MUSIC, false);
-
-                Uri newUri = getContentResolver().insert(Uri.parse("content://media" + path + ".mp3"), values);
-
-                RingtoneManager.setActualDefaultRingtoneUri(
-                        CallerNameService.this,
-                        RingtoneManager.TYPE_RINGTONE,
-                        newUri
-                );
+                tts.speak(ring, TextToSpeech.QUEUE_FLUSH, myHashRender);
 
             }
 
@@ -150,12 +133,9 @@ public class CallerNameService extends Service
     }
 
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if (requestCode == REQ_TTS_STATUS_CHECK)
-        {
-            switch (resultCode)
-            {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQ_TTS_STATUS_CHECK) {
+            switch (resultCode) {
                 case TextToSpeech.Engine.CHECK_VOICE_DATA_PASS: {
 
                     break;
@@ -173,4 +153,6 @@ public class CallerNameService extends Service
             }
         }
     }
+
 }
+
